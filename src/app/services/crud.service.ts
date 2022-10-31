@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 export class CrudService {
   constructor(private http: HttpClient) { }
 
+  // apiUrl = "https://portfolio-ap-spring.rj.r.appspot.com/";
+  
   getAll(url: string): Observable<any> {
     return this.http.get<any>(`${url}`)
   }
