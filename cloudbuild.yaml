@@ -1,9 +1,13 @@
-setps:
+steps:
 
   # Install node packages
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['run','build','--prod']
+    args: ['install']
+
+  # Build productive files
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build','--prod']
 
   # Deploy to google cloud app engine
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['app','deploy','--version=prod']
+    args: ['app', 'deploy', '--version=prod']
