@@ -1,0 +1,102 @@
+<div class="container ">
+    <header class="row-between-container">
+        <a href="https://www.argentina.gob.ar/economia/conocimiento/argentina-programa"><img class="icon" src="/assets/img/argentinaProgramaLogo.png" alt=""></a>
+        <div class="row-container">
+            <div>
+                <a href="https://github.com/9Noir"><i class="icon devicon-github-original"></i></a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/jatp"><i class="icon devicon-linkedin-plain"></i></a>
+            </div>
+            <div>
+                <form class="row-container" *ngIf="isLogFormActive && !islogged()" [formGroup]="form" (ngSubmit)="onSubmit($event)">
+                    <input type="email" placeholder="Email" formControlName="email">
+                    <input type="password" placeholder="Contraseña" formControlName="password">
+                    <button class="icon-btn" type="submit">INGRESAR</button>
+                    <i type="reset" (click)="toggleLogForm();this.form.reset()" class="icon fa-regular fa-circle-xmark"></i>
+                </form>
+                <button *ngIf="!isLogFormActive" class="icon-btn" type="button" (click)="toggleLogForm()">INGRESAR</button>
+                <button *ngIf="islogged()" class="icon-btn" type="button" (click)="this.authService.logout();toggleLogForm()">CERRAR SESSIÓN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- <img id="banner" src="https://wallpaperboat.com/wp-content/uploads/2020/11/13/60417/programming-minimalist-16.jpg" alt=""> -->
+    <div *ngFor="let about of this.list">
+        <div *ngIf="idEdit != about.id" class="row-between-container">
+            <div class="col-container left-ctr">
+                <img class="img-rounded shadow" src="https://scontent.fmdz7-1.fna.fbcdn.net/v/t31.18172-8/13308215_10209936649476579_3638181317608831144_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=LOtEYZI-agsAX8TXd5l&tn=0wK-4IpjHukHOD4d&_nc_ht=scontent.fmdz7-1.fna&oh=00_AfAJYGLFjz3PmAf-V_-xJAi0oRjrB_A_pvySWdfkxGXKKQ&oe=638044A9" alt="">
+                <h3>{{about.name +" "+ about.surname}}</h3>
+                <p>{{about.title}}</p>
+                <p id="location">{{about.location}}</p>
+            </div>
+            <div class="right-ctr">
+                <div class="row-between-container">
+                    <h1>ACERCA DE MI</h1>
+                    <i *ngIf="islogged()" type="button" (click)="getAll();toggleEdit(about.id)" class="icon fa-solid fa-pen-to-square"></i>
+                </div>
+                <p>{{about.about}}</p>
+            </div>
+        </div>
+
+        <div *ngIf="islogged()">
+            <div *ngIf="idEdit == about.id" class="row-between-container">
+                <div class="col-container left-ctr">
+                    <img class="img-rounded" src="https://scontent.fmdz7-1.fna.fbcdn.net/v/t31.18172-8/13308215_10209936649476579_3638181317608831144_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=LOtEYZI-agsAX8TXd5l&tn=0wK-4IpjHukHOD4d&_nc_ht=scontent.fmdz7-1.fna&oh=00_AfAJYGLFjz3PmAf-V_-xJAi0oRjrB_A_pvySWdfkxGXKKQ&oe=638044A9" alt="">
+                    <h3>{{about.name +" "+ about.surname}}</h3>
+                    <p>{{about.title}}</p>
+                    <p>{{about.location}}</p>
+                </div>
+                <div class="right-ctr">
+                    <h1>ACERCA DE MI</h1>
+                    <textarea rows="5" type="text" placeholder="Descripción" [(ngModel)]="about.about" required></textarea>
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" placeholder="Nombre" [(ngModel)]="about.name">
+                    <label for="surname">Apellido</label>
+                    <input type="text" id="surname" placeholder="Apellido" [(ngModel)]="about.surname">
+                    <label for="title">Titulo</label>
+                    <input type="text" id="title" placeholder="Titulo" [(ngModel)]="about.title">
+                    <label for="location">Localización</label>
+                    <input type="text" id="location" placeholder="Localización" [(ngModel)]="about.location">
+                    <label for="">Foto de perfil (URL)</label>
+                    <textarea rows="2" placeholder="" [(ngModel)]="about.urlPhoto"></textarea>
+                    <label for="">Imagen de banner (URL)</label>
+                    <textarea rows="2" [(ngModel)]="about.urlBanner"></textarea>
+                    <!-- <label for="">Github (URL)</label>
+                    <textarea rows="2" [(ngModel)]="about.urlGit"></textarea>
+                    <label for="">Linkedin(URL)</label>
+                    <textarea rows="2" [(ngModel)]="about.urlLinkedin"></textarea> -->
+                    <div class="btn-container">
+                        <button class="confirm-btn icon-btn" type="button" (click)="update(about);toggleEdit(0)">Guardar</button>
+                        <button class="confirm-btn icon-btn" type="button" (click)="toggleEdit(0)">Cancelar</button>
+                    </div>
+                </div>
+
+                <!-- <button *ngIf="idEdit != about.id" type="button" (click)="getAll();toggleEdit(about.id)">Editar</button>
+                <button *ngIf="idEdit == about.id" type="button" (click)="update(about);toggleEdit(0)">Guardar</button>
+                <button *ngIf="idEdit == about.id" type="button" (click)="getAll();toggleEdit(0)">Cancelar</button> -->
+            </div>
+
+
+        </div>
+        <div class="row-between-container">
+            <div class="left-ctr"></div>
+            <div class="right-ctr">
+                <form *ngIf="!list" #addForm="ngForm">
+                    <h1>ACERCA DE MI</h1>
+                    <input type="text" name="name" placeholder="Nombre" ngModel>
+                    <input type="text" name="surname" placeholder="Apellido" ngModel>
+                    <input type="text" name="title" placeholder="Titulo" ngModel>
+                    <input type="text" name="location" placeholder="Localización" ngModel>
+                    <input type="text" name="about" placeholder="Acerca de mi" ngModel>
+                    <input type="text" name="urlPhoto" placeholder="URL de Foto de perfil" ngModel>
+                    <input type="text" name="urlBanner" placeholder="URL de imagen de banner " ngModel>
+                    <input type="text" name="urlGit" placeholder="URL de GitHub" ngModel>
+                    <input type="text" name="urlLinkedin" placeholder="URL de Linkedin" ngModel>
+                    <button type="submit" (click)="save(addForm.value);toggleAdd()">Guardar</button>
+                    <button type="button" (click)="toggleAdd()">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,191 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap');
+@import url(https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css);
+
+:root {
+    --color-body: #fff;
+    --color-heading: #eef3db;
+    --font-base: "Bai Jamjuree";
+    --font-size-1: 1rem;
+    --font-size-2: 1rem;
+    --font-size-3: 1rem;
+    --font-size-4: 1rem;
+    --gap: 20px
+}
+
+html {
+    background: linear-gradient(135deg, #005baa 0%, #005baa 25%, #007dc6 50%, #00aeef 100%);
+    background-size: cover;
+}
+
+body {
+    color: var(--color-body);
+    font-family: var(--font-base);
+    margin: 5%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-heading);
+    font-weight: 700;
+    margin: 0%;
+}
+
+.left-ctr {
+    width: 20%;
+    text-align: center;
+}
+
+.right-ctr {
+    width: 76%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+/* ngFor para contenido iterable */
+.section{
+    margin-bottom: 1.5rem;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap);
+}
+
+.row-between-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.col-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+}
+
+label {
+    /* padding: 10px; */
+    font-weight: 700;
+}
+
+input,
+textarea {
+    padding: 10px;
+    font-family: var(--font--base);
+    font-size: 1.4rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0px;
+    resize: none;
+    /* overflow: hidden; */
+    color: #fff;
+    outline: none;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.3px);
+    -webkit-backdrop-filter: blur(4.3px);
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    transition: 0.5s;
+}
+
+input {
+    align-items: center;
+    justify-content: center;
+}
+
+:where(input, textarea):focus {
+    border: 4px solid #fff;
+}
+
+::placeholder {
+    color: #e5e5e5cd;
+}
+
+a {
+    text-decoration: none;
+}
+
+.icon {
+    color: var(--color-body);
+    height: 3rem;
+    font-size: 3rem;
+    transition: 0.2s;
+}
+
+.icon:hover {
+    height: 4rem;
+    font-size: 4rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.icon-btn {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-family: var(--font--base);
+    font-weight: 700;
+    color: var(--color-body);
+    background-color: transparent;
+    border: 0.3rem solid var(--color-body);
+    border-radius: 45px;
+    height: 3rem;
+    transition: 0.25s;
+}
+
+.icon-btn:hover {
+    height: 4rem;
+    transition: 0.25s;
+}
+
+.confirm-btn {
+    font-size: 1.5rem;
+    width: 10rem;
+    height: auto;
+}
+
+.btn-container {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.confirm-btn:hover {
+    background-color: #fff;
+    color: dodgerblue;
+}
+
+.shadow {
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+    width: 50%;
+    border-radius: 16px;
+}
+
+p {
+    margin: 0%;
+}
+
+h2 {
+    color: burlywood;
+}
+
+h3 {
+    color: #e5e5e5;
+}
+

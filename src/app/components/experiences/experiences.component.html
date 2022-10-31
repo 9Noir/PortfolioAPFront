@@ -1,0 +1,73 @@
+<div class="row-between-container">
+    <div class="left-ctr"></div>
+    <div class="right-ctr row-between-container">
+        <h1>EXPERIENCIA LABORAL</h1>
+        <i *ngIf="islogged()" class="icon fa-solid fa-plus" (click)="toggleAdd()"></i>
+    </div>
+</div>
+
+<!-- Agregar -->
+<form *ngIf="isAddFormActive" #addForm="ngForm" class="row-between-container">
+    <div class="left-ctr"></div>
+    <div class="right-ctr">
+        <label for="title">Cargo</label>
+        <input type="text" id="title" placeholder="Developer,Testing,QA" name="title" ngModel>
+        <label for="company">Empresa</label>
+        <input type="text" id="company" placeholder="Nombre de la empresa" name="company" ngModel>
+        <label for="period">Periodo</label>
+        <input type="text" id="period" placeholder="2005-2019" name="period" ngModel>
+        <label for="logo">Logo de la empresa (URL)</label>
+        <textarea rows="2" id="logo" placeholder="http://imgcloud.com/logocompany.jpg" name="urlLogo" ngModel></textarea>
+        <label for="description">Descripción</label>
+        <textarea rows="5" id="description" placeholder="Descripción del puesto de trabajo realizado" name="jobDescription" ngModel></textarea>
+        <div class="btn-container">
+            <button class="confirm-btn icon-btn" type="submit" (click)="save(addForm.value);toggleAdd()">Guardar</button>
+            <button class="confirm-btn icon-btn" type="button" (click)="toggleAdd()">Cancelar</button>
+        </div>
+    </div>
+</form>
+
+<!-- Vista de datos -->
+<div *ngFor="let exp of this.list">
+    <div *ngIf="idEdit != exp.id" class="section row-between-container">
+        <div class="col-container left-ctr">
+            <img class="logo-img shadow" [src]="exp.urlLogo">
+        </div>
+        <div class="right-ctr">
+            <div class="row-between-container">
+                <h2>{{exp.title}}</h2>
+                <div *ngIf="islogged()" class="row-container">
+                    <i type="button" (click)="toggleEdit(exp.id)" class="icon fa-solid fa-pen-to-square" placeholder="Editar" aria-placeholder="Cancelar"></i>
+                    <i type="button" (click)="delete(exp.id)" class="icon fa-regular fa-circle-xmark" placeholder="Eliminar" aria-placeholder="Eliminar"></i>
+                </div>
+            </div>
+            <h3>{{exp.company}} ({{exp.period}})</h3>
+            <p>{{exp.jobDescription}}</p>
+        </div>
+    </div>
+
+    <!-- Edicion si esta logueado-->
+    <div *ngIf="islogged()">
+        <div *ngIf="idEdit == exp.id" class="section row-between-container">
+            <div class="col-container left-ctr">
+                <img class="logo-img shadow" [src]="exp.urlLogo">
+            </div>
+            <div class="right-ctr">
+                <label for="title">Cargo</label>
+                <input type="text" id="title" placeholder="Developer,Testing,QA" [(ngModel)]="exp.title">
+                <label for="company">Empresa</label>
+                <input type="text" id="company" placeholder="Nombre de la empresa" [(ngModel)]="exp.company">
+                <label for="period">Periodo</label>
+                <input type="text" id="period" placeholder="2005-2019" [(ngModel)]="exp.period">
+                <label for="logo">Logo de la empresa (URL)</label>
+                <textarea rows="2" id="logo" placeholder="http://imgcloud.com/logocompany.jpg" [(ngModel)]="exp.urlLogo"></textarea>
+                <label for="description">Descripción</label>
+                <textarea rows="5" id="description" placeholder="Descripción del puesto de trabajo realizado" [(ngModel)]="exp.jobDescription"></textarea>
+                <div class="btn-container">
+                    <button class="confirm-btn icon-btn" type="button" (click)="update(exp);toggleEdit(0)">Guardar</button>
+                    <button class="confirm-btn icon-btn" type="button" (click)="getAll();toggleEdit(0)">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
