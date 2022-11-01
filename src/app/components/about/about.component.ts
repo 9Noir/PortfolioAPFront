@@ -25,7 +25,4 @@ export class AboutComponent extends DataComponent<About> implements OnInit {
   toggleLogForm() {
     this.isLogFormActive = !this.isLogFormActive;
   }
-
-
-
 }

@@ -21,11 +21,11 @@
         </div>
     </header>
 
-    <!-- <img id="banner" src="https://wallpaperboat.com/wp-content/uploads/2020/11/13/60417/programming-minimalist-16.jpg" alt=""> -->
+    <img id="banner" src="https://thumbs.dreamstime.com/b/galaxy-space-banner-view-telescope-distant-illustration-76836650.jpg" alt="">
     <div *ngFor="let about of this.list">
-        <div *ngIf="idEdit != about.id" class="row-between-container">
+        <div *ngIf="idEdit != about.id" class="section row-between-container">
             <div class="col-container left-ctr">
-                <img class="img-rounded shadow" src="https://scontent.fmdz7-1.fna.fbcdn.net/v/t31.18172-8/13308215_10209936649476579_3638181317608831144_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=LOtEYZI-agsAX8TXd5l&tn=0wK-4IpjHukHOD4d&_nc_ht=scontent.fmdz7-1.fna&oh=00_AfAJYGLFjz3PmAf-V_-xJAi0oRjrB_A_pvySWdfkxGXKKQ&oe=638044A9" alt="">
+                <img class="img-rounded shadow" [src]="about.urlPhoto" alt="">
                 <h3>{{about.name +" "+ about.surname}}</h3>
                 <p>{{about.title}}</p>
                 <p id="location">{{about.location}}</p>
@@ -42,7 +42,7 @@
         <div *ngIf="islogged()">
             <div *ngIf="idEdit == about.id" class="row-between-container">
                 <div class="col-container left-ctr">
-                    <img class="img-rounded" src="https://scontent.fmdz7-1.fna.fbcdn.net/v/t31.18172-8/13308215_10209936649476579_3638181317608831144_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=LOtEYZI-agsAX8TXd5l&tn=0wK-4IpjHukHOD4d&_nc_ht=scontent.fmdz7-1.fna&oh=00_AfAJYGLFjz3PmAf-V_-xJAi0oRjrB_A_pvySWdfkxGXKKQ&oe=638044A9" alt="">
+                    <img class="img-rounded" [src]="about.urlPhoto" alt="">
                     <h3>{{about.name +" "+ about.surname}}</h3>
                     <p>{{about.title}}</p>
                     <p>{{about.location}}</p>
@@ -71,10 +71,6 @@
                         <button class="confirm-btn icon-btn" type="button" (click)="toggleEdit(0)">Cancelar</button>
                     </div>
                 </div>
-
-                <!-- <button *ngIf="idEdit != about.id" type="button" (click)="getAll();toggleEdit(about.id)">Editar</button>
-                <button *ngIf="idEdit == about.id" type="button" (click)="update(about);toggleEdit(0)">Guardar</button>
-                <button *ngIf="idEdit == about.id" type="button" (click)="getAll();toggleEdit(0)">Cancelar</button> -->
             </div>
 
 

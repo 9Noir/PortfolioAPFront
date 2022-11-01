@@ -24,68 +24,42 @@
 </form>
 
 <!-- Vista de datos -->
-<!-- <div *ngFor="let skill of this.list">
-    <div *ngIf="idEdit != skill.id" class="section row-between-container">
-        <div class="left-ctr"></div>
-        <div class="right-ctr">
-            <div class="row-between-container"> -->
 
-<div>
-    <div class="section row-between-container">
-        <div class="left-ctr"></div>
-        <div class="right-ctr row-between-container">
-            <div *ngFor="let skill of this.list">
-                <div *ngIf="idEdit != skill.id" class="skill-container col-container">
-                    <h2>{{skill.name}}</h2>
-                    <div *ngIf="islogged()" class="row-container">
-                        <i type="button" (click)="toggleEdit(skill.id)" class="icon fa-solid fa-pen-to-square" placeholder="Editar" aria-placeholder="Editar"></i>
-                        <i type="button" (click)="delete(skill.id)" class="icon fa-regular fa-circle-xmark" placeholder="Eliminar" aria-placeholder="Eliminar"></i>
-                    </div>
-                    <i type="button" class="skill" [ngClass]="skill.urlLogo?skill.urlLogo:''"></i>
+<div class="section row-between-container">
+    <div class="left-ctr"></div>
+    <div class="right-ctr skill-container row-between-container">
+        <div *ngFor="let skill of this.list">
+            <div *ngIf="idEdit != skill.id" class="col-container">
+                <h2>{{skill.name}}</h2>
+                <div *ngIf="islogged()" class="row-container">
+                    <i type="button" (click)="toggleEdit(skill.id)" class="icon fa-solid fa-pen-to-square" placeholder="Editar" aria-placeholder="Editar"></i>
+                    <i type="button" (click)="delete(skill.id)" class="icon fa-regular fa-circle-xmark" placeholder="Eliminar" aria-placeholder="Eliminar"></i>
                 </div>
+                <i type="button" class="skill" [ngClass]="skill.urlLogo?skill.urlLogo:''"></i>
+                <div class="base">
+                    <div class="pBar" [ngStyle]="{'width.%':skill.progress}"></div>
+                </div>
+            </div>
 
-                <!-- Edicion si esta logueado-->
-                <div *ngIf="islogged()">
-                    <div *ngIf="idEdit == skill.id" class="skill-container col-container">
-                        <div class="right-ctr">
-                            <h2>{{skill.name}} </h2>
-                            <label for="name">Nombre de la habilidad</label>
-                            <input type="text" id="name" placeholder="Java,css,html,ingles,cooperativo" name="name" [(ngModel)]="skill.name">
-                            <label for="progress">Progreso % de habilidad</label>
-                            <input type="number" id="progress" placeholder="20" name="progress" [(ngModel)]="skill.progress">
-                            <label for="urlLogo">Icono representativo</label>
-                            <input type="text" id="urlLogo" placeholder="devicon-amazonwebservices-original" name="urlLogo" [(ngModel)]="skill.urlLogo">
-                            <div class="btn-container">
-                                <button class="confirm-btn icon-btn" type="button" (click)="update(skill);toggleEdit(0)">Guardar</button>
-                                <button class="confirm-btn icon-btn" type="button" (click)="getAll();toggleEdit(0)">Cancelar</button>
-                            </div>
+            <!-- Edicion si esta logueado-->
+            <div *ngIf="islogged()">
+                <div *ngIf="idEdit == skill.id" class="skill-container col-container">
+                    <div class="right-ctr">
+                        <h2>{{skill.name}} </h2>
+                        <label for="name">Nombre de la habilidad</label>
+                        <input type="text" id="name" placeholder="Java,css,html,ingles,cooperativo" name="name" [(ngModel)]="skill.name">
+                        <label for="progress">Progreso % de habilidad</label>
+                        <input type="number" id="progress" placeholder="20" name="progress" [(ngModel)]="skill.progress">
+                        <label for="urlLogo">Icono representativo</label><a href="https://devicon.dev/" target="_blank">Devicon</a>
+                        <input type="text" id="urlLogo" placeholder="devicon-amazonwebservices-original" name="urlLogo" [(ngModel)]="skill.urlLogo">
+                        <div class="btn-container">
+                            <button class="confirm-btn icon-btn" type="button" (click)="update(skill);toggleEdit(0)">Guardar</button>
+                            <button class="confirm-btn icon-btn" type="button" (click)="getAll();toggleEdit(0)">Cancelar</button>
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
-    </div>
-
-
-</div>
-
-
-
-
-
-<div class="html">
-    <div class="grid">
-        <section *ngFor="let s of list" class="col-container">
-            <h2>{{s.name}}</h2>
-            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                <circle class="circle-chart__circle" stroke="#00acc1" stroke-width="2" attr.stroke-dasharray="{{s.progress}}, 100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                <g class="circle-chart__info">
-                    <text class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8">{{s.progress}}</text>
-                    <text class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2">Yay {{s.progress}}% progress!</text>
-                </g>
-            </svg>
-        </section>
     </div>
 </div>

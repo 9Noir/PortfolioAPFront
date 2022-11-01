@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  url = "/api";
+  url = environment.apiUrl;
   currentUserSubject: BehaviorSubject<any>;
   parcero: boolean | undefined;
   constructor(private http: HttpClient) {
@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   login(credentials: any): Observable<any> {
-    return this.http.post(`${this.url}/login`, credentials).pipe(
+    return this.http.post(`${this.url}/api/login`, credentials).pipe(
       map((data) => {
         sessionStorage.setItem('currentUser', JSON.stringify(data));
         this.currentUserSubject.next(data);

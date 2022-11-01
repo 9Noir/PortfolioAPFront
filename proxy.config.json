@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "https://portfolio-ap-spring.rj.r.appspot.com/",
+        "target": "https://portfolio-ap-spring.rj.r.appspot.com",
         "secure": false,
         "changeOrigin": true,
         "loglevel": "debug"

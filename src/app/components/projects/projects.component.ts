@@ -16,9 +16,5 @@ export class ProjectsComponent extends DataComponent<Project> implements OnInit 
   constructor(private cs: CrudService, private as: AuthService, private fb: FormBuilder) {
     super(cs, as, fb);
     this.url = "/api/project";
-    this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5)]],
-    });
   }
 }

@@ -15,9 +15,5 @@ export class ExperiencesComponent extends DataComponent<Experience> implements O
   constructor(private cs: CrudService, private as: AuthService, private fb: FormBuilder) {
     super(cs, as, fb);
     this.url = "/api/experience";
-    this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5)]],
-    });
   }
 }
