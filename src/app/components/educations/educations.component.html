@@ -1,8 +1,10 @@
-<div class="row-between-container">
+<div class="section row-between-container">
     <div class="left-ctr lhi"></div>
-    <div class="right-ctr row-between-container">
-        <h1>FORMACIÓN</h1>
-        <i *ngIf="islogged()" class="icon fa-solid fa-plus" (click)="toggleAdd()"></i>
+    <div class="right-ctr">
+        <div class="row-between-container">
+            <h1>FORMACIÓN</h1>
+            <i *ngIf="islogged()" class="icon fa-solid fa-plus" (click)="toggleAdd()"></i>
+        </div>
     </div>
 </div>
 
@@ -15,11 +17,14 @@
         <label for="period">Periodo</label>
         <input type="text" id="period" placeholder="2010-2015" name="period" ngModel>
         <label for="institute">Instituto</label>
-        <input type="text" id="institute" placeholder="Universidad, Instituto, Empresa educativa" name="institute" ngModel>
+        <input type="text" id="institute" placeholder="Universidad, Instituto, Empresa educativa" name="institute"
+            ngModel>
         <label for="logo">Logo del instituto (URL)</label>
-        <textarea rows="2" id="logo" placeholder="http://imgcloud.com/logoInstitute.jpg" name="urlLogo" ngModel></textarea>
+        <textarea rows="2" id="logo" placeholder="http://imgcloud.com/logoInstitute.jpg" name="urlLogo"
+            ngModel></textarea>
         <div class="btn-container">
-            <button class="confirm-btn icon-btn" type="submit" (click)="save(addForm.value);toggleAdd()">Guardar</button>
+            <button class="confirm-btn icon-btn" type="submit"
+                (click)="save(addForm.value);toggleAdd()">Guardar</button>
             <button class="confirm-btn icon-btn" type="button" (click)="toggleAdd()">Cancelar</button>
         </div>
     </div>
@@ -36,14 +41,16 @@
                 <div class="row-between-container">
                     <h2>{{edu.title}}</h2>
                     <div *ngIf="islogged()" class="row-container">
-                        <i type="button" (click)="toggleEdit(edu.id)" class="icon fa-solid fa-pen-to-square" placeholder="Editar" aria-placeholder="Cancelar"></i>
-                        <i type="button" (click)="delete(edu.id)" class="icon fa-regular fa-circle-xmark" placeholder="Eliminar" aria-placeholder="Eliminar"></i>
+                        <i type="button" (click)="toggleEdit(edu.id)" class="icon fa-solid fa-pen-to-square"
+                            placeholder="Editar" aria-placeholder="Cancelar"></i>
+                        <i type="button" (click)="delete(edu.id)" class="icon fa-regular fa-circle-xmark"
+                            placeholder="Eliminar" aria-placeholder="Eliminar"></i>
                     </div>
                 </div>
                 <h3>{{edu.institute}} ({{edu.period}})</h3>
             </div>
         </div>
-    
+
         <!-- Edicion si esta logueado-->
         <div *ngIf="islogged()">
             <div *ngIf="idEdit == edu.id" class="section row-between-container">
@@ -52,16 +59,21 @@
                 </div>
                 <div class="right-ctr">
                     <label for="title">Título</label>
-                    <input type="text" id="title" placeholder="Desarrollador,Ingeniero,Técnico,Analista " name="title" [(ngModel)]="edu.title">
+                    <input type="text" id="title" placeholder="Desarrollador,Ingeniero,Técnico,Analista " name="title"
+                        [(ngModel)]="edu.title">
                     <label for="period">Periodo</label>
                     <input type="text" id="period" placeholder="2010-2015" name="period" [(ngModel)]="edu.period">
                     <label for="institute">Instituto</label>
-                    <input type="text" id="institute" placeholder="Universidad, Instituto, Empresa educativa" name="institute" [(ngModel)]="edu.institute">
+                    <input type="text" id="institute" placeholder="Universidad, Instituto, Empresa educativa"
+                        name="institute" [(ngModel)]="edu.institute">
                     <label for="logo">Logo del instituto (URL)</label>
-                    <textarea rows="2" id="logo" placeholder="http://imgcloud.com/logoInstitute.jpg" name="urlLogo" [(ngModel)]="edu.urlLogo"></textarea>
+                    <textarea rows="2" id="logo" placeholder="http://imgcloud.com/logoInstitute.jpg" name="urlLogo"
+                        [(ngModel)]="edu.urlLogo"></textarea>
                     <div class="btn-container">
-                        <button class="confirm-btn icon-btn" type="button" (click)="update(edu);toggleEdit(0)">Guardar</button>
-                        <button class="confirm-btn icon-btn" type="button" (click)="getAll();toggleEdit(0)">Cancelar</button>
+                        <button class="confirm-btn icon-btn" type="button"
+                            (click)="update(edu);toggleEdit(0)">Guardar</button>
+                        <button class="confirm-btn icon-btn" type="button"
+                            (click)="getAll();toggleEdit(0)">Cancelar</button>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,10 @@
-<div class="row-between-container">
+<div class="section row-between-container">
     <div class="left-ctr lhi"></div>
-    <div class="right-ctr row-between-container">
-        <h1>PROYECTOS</h1>
-        <i *ngIf="islogged()" class="icon fa-solid fa-plus" (click)="toggleAdd()"></i>
+    <div class="right-ctr">
+        <div class="row-between-container">
+            <h1>PROYECTOS</h1>
+            <i *ngIf="islogged()" class="icon fa-solid fa-plus" (click)="toggleAdd()"></i>
+        </div>
     </div>
 </div>
 
@@ -13,15 +15,19 @@
         <label for="name">Nombre del proyecto</label>
         <input type="text" id="name" placeholder="Página web" name="name" ngModel>
         <label for="description">Descripción</label>
-        <textarea rows="3" id="description" placeholder="De que trata el proyecto, tecnologías usadas, objetivos" name="description" ngModel></textarea>
+        <textarea rows="3" id="description" placeholder="De que trata el proyecto, tecnologías usadas, objetivos"
+            name="description" ngModel></textarea>
         <label for="link">Demo o web (URL)</label>
         <textarea rows="2" id="link" placeholder="https://proyectexample.com" name="link" ngModel></textarea>
         <label for="urlGit">Repositorio GIT (URL)</label>
-        <textarea rows="2" id="urlGit" placeholder="https://github.com/example/project" name="urlGit" ngModel></textarea>
+        <textarea rows="2" id="urlGit" placeholder="https://github.com/example/project" name="urlGit"
+            ngModel></textarea>
         <label for="urlImg">Imagen del proyecto (URL)</label>
-        <textarea rows="2" id="urlImg" placeholder="http://imgcloud.com/logoInstitute.jpg" name="urlImg" ngModel></textarea>
+        <textarea rows="2" id="urlImg" placeholder="http://imgcloud.com/logoInstitute.jpg" name="urlImg"
+            ngModel></textarea>
         <div class="btn-container">
-            <button class="confirm-btn icon-btn" type="submit" (click)="save(addForm.value);toggleAdd()">Guardar</button>
+            <button class="confirm-btn icon-btn" type="submit"
+                (click)="save(addForm.value);toggleAdd()">Guardar</button>
             <button class="confirm-btn icon-btn" type="button" (click)="toggleAdd()">Cancelar</button>
         </div>
     </div>
@@ -41,8 +47,10 @@
             <div class="row-between-container">
                 <h2>{{proj.name}}</h2>
                 <div *ngIf="islogged()" class="row-container">
-                    <i type="button" (click)="toggleEdit(proj.id)" class="icon fa-solid fa-pen-to-square" placeholder="Editar" aria-placeholder="Cancelar"></i>
-                    <i type="button" (click)="delete(proj.id)" class="icon fa-regular fa-circle-xmark" placeholder="Eliminar" aria-placeholder="Eliminar"></i>
+                    <i type="button" (click)="toggleEdit(proj.id)" class="icon fa-solid fa-pen-to-square"
+                        placeholder="Editar" aria-placeholder="Cancelar"></i>
+                    <i type="button" (click)="delete(proj.id)" class="icon fa-regular fa-circle-xmark"
+                        placeholder="Eliminar" aria-placeholder="Eliminar"></i>
                 </div>
             </div>
             <p>{{proj.description}}</p>
@@ -63,16 +71,23 @@
                 <label for="name">Nombre del proyecto</label>
                 <input type="text" id="name" placeholder="Página web" name="name" [(ngModel)]="proj.name">
                 <label for="description">Descripción</label>
-                <textarea rows="3" id="description" placeholder="De que trata el proyecto, tecnologías usadas, objetivos" name="description" [(ngModel)]="proj.description"></textarea>
+                <textarea rows="3" id="description"
+                    placeholder="De que trata el proyecto, tecnologías usadas, objetivos" name="description"
+                    [(ngModel)]="proj.description"></textarea>
                 <label for="link">Demo o web (URL)</label>
-                <textarea rows="1" id="link" placeholder="https://proyectexample.com" name="link" [(ngModel)]="proj.link"></textarea>
+                <textarea rows="1" id="link" placeholder="https://proyectexample.com" name="link"
+                    [(ngModel)]="proj.link"></textarea>
                 <label for="urlGit">Repositorio GIT (URL)</label>
-                <textarea rows="1" id="urlGit" placeholder="https://github.com/example/project" name="urlGit" [(ngModel)]="proj.urlGit"></textarea>
+                <textarea rows="1" id="urlGit" placeholder="https://github.com/example/project" name="urlGit"
+                    [(ngModel)]="proj.urlGit"></textarea>
                 <label for="urlImg">Imagen del proyecto (URL)</label>
-                <textarea rows="1" id="urlImg" placeholder="http://imgcloud.com/logoInstitute.jpg" name="urlImg" [(ngModel)]="proj.urlImg"></textarea>
+                <textarea rows="1" id="urlImg" placeholder="http://imgcloud.com/logoInstitute.jpg" name="urlImg"
+                    [(ngModel)]="proj.urlImg"></textarea>
                 <div class="btn-container">
-                    <button class="confirm-btn icon-btn" type="button" (click)="update(proj);toggleEdit(0)">Guardar</button>
-                    <button class="confirm-btn icon-btn" type="button" (click)="getAll();toggleEdit(0)">Cancelar</button>
+                    <button class="confirm-btn icon-btn" type="button"
+                        (click)="update(proj);toggleEdit(0)">Guardar</button>
+                    <button class="confirm-btn icon-btn" type="button"
+                        (click)="getAll();toggleEdit(0)">Cancelar</button>
                 </div>
             </div>
         </div>
