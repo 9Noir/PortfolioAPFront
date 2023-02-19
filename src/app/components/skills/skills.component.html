@@ -10,7 +10,7 @@
 
 <!-- Agregar -->
 <form *ngIf="isAddFormActive && islogged()" #addForm="ngForm" class="row-between-container">
-    <div class="left-ctr"></div>
+    <div class="left-ctr lhi"></div>
     <div class="right-ctr">
         <label for="name">Nombre de la habilidad</label>
         <input type="text" id="name" placeholder="Java,css,html,ingles,cooperativo" name="name" ngModel>
@@ -29,7 +29,7 @@
 <!-- Vista de datos -->
 
 <div class="section row-between-container">
-    <div class="left-ctr"></div>
+    <div class="left-ctr lhi"></div>
     <div class="right-ctr skill-container row-between-container">
         <div *ngFor="let skill of this.list">
             <div *ngIf="idEdit != skill.id" class="col-container">
@@ -58,7 +58,7 @@
                         <input type="number" id="progress" placeholder="20" name="progress"
                             [(ngModel)]="skill.progress">
                         <label for="urlLogo">Icono representativo</label><a href="https://devicon.dev/"
-                            target="_blank">Devicon</a>
+                            target="_blank">Devicon LINK</a>
                         <input type="text" id="urlLogo" placeholder="devicon-amazonwebservices-original" name="urlLogo"
                             [(ngModel)]="skill.urlLogo">
                         <div class="btn-container">

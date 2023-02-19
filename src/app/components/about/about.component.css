@@ -2,6 +2,9 @@ header {
   padding: var(--pad);
   min-height: 5rem;
 }
+header .row-container{
+  gap: var(--gap);
+}
 
 #banner {
   margin-bottom: 2rem;
@@ -11,9 +14,14 @@ header {
   height: 20rem;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
-.profile-container {
+.about{
   position: relative;
-  top: -9rem;
+}
+.profile-container {
+  position: absolute;
+  text-align: center;
+  top: 15rem;
+  left: 3rem;
 }
 .img-rounded {
   width: 10rem;
@@ -24,6 +32,15 @@ header {
 .left-ctr {
   font-size: 1.2rem;
   gap: 0;
+}
+
+@media only screen and (max-width:1052px){
+  .profile-container {
+    position: relative;
+    top: -8rem;
+    left:0;
+    margin-bottom: -8rem;
+  }
 }
 
 @media only screen and (max-width:500px) {

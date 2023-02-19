@@ -5,9 +5,11 @@
 }
 
 .skill-container {
+  margin-bottom: 3rem;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: var(--gap);
 }
 
 .col-container {
@@ -17,9 +19,8 @@
 .base {
   height: 10px;
   width: 100%;
+  margin-top: 1rem;
   background: rgba(221, 221, 221, 0.787);
-  /* From https://css.glass */
-  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.25);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -31,4 +32,10 @@
 .pBar {
   height: 10px;
   background: var(--color-h1);
+}
+
+@media only screen and (max-width: 600px) {
+  .skill-container {
+    justify-content: center !important;
+  }
 }

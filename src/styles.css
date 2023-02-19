@@ -9,10 +9,6 @@
   --color-p: rgb(234, 229, 229);
   --font-base: "Bai Jamjuree";
   --img-size: 15rem;
-  --font-size-1: 1rem;
-  --font-size-2: 1rem;
-  --font-size-3: 1rem;
-  --font-size-4: 1rem;
   --margin-section: 5rem;
   --pad: 1.25rem;
   --gap: 20px;
@@ -32,7 +28,7 @@ html {
 body {
   color: var(--color-body);
   font-family: var(--font-base);
-  margin: auto;
+  margin: 0 15%;
 }
 
 h1,
@@ -51,6 +47,7 @@ h1 {
 
 h2 {
   color: var(--color-h2);
+  text-transform: uppercase;
 }
 
 h3 {
@@ -66,7 +63,7 @@ p {
   display: flex;
   flex-grow: 1;
   align-self: center;
-  padding: var(--pad);
+  padding: 0 var(--pad);
 }
 
 .right-ctr {
@@ -74,8 +71,7 @@ p {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  padding: var(--pad);
-  gap: var(--gap);
+  padding: 0 var(--pad);
 }
 
 /* ngFor para contenido iterable */
@@ -83,7 +79,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* margin-bottom: 5rem; */
+  margin-bottom: 1rem;
 }
 
 .row-container {
@@ -105,7 +101,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--gap);
+  /* gap: var(--gap); */
 }
 
 label {
@@ -228,7 +224,21 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
+  /* :root{
+    --img-size: 8rem;
+  } */
+  body {
+    margin: auto;
+  }
   .row-between-container {
     font-size: 1rem;
+  }
+  .lhi {
+    display: none;
+  }
+  .logo-img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
   }
 }

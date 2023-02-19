@@ -23,12 +23,13 @@
     </div>
 </header>
 
-<div class="section" style="flex-grow: 1;">
-    <img id="banner"
-        src="https://thumbs.dreamstime.com/b/galaxy-space-banner-view-telescope-distant-illustration-76836650.jpg"
-        alt="">
-</div>
-<div *ngFor="let about of this.list">
+
+<div class="about" *ngFor="let about of this.list">
+    <div class="section" style="flex-grow: 1;">
+        <img id="banner"
+            src={{about.urlBanner}}
+            alt="">
+    </div>
     <div *ngIf="idEdit != about.id" class="section row-between-container">
         <div class="col-container left-ctr profile-container">
             <img class="img-rounded shadow" [src]="about.urlPhoto" alt="">
@@ -36,6 +37,7 @@
             <p>{{about.title}}</p>
             <p id="location">{{about.location}}</p>
         </div>
+        <div class="left-ctr lhi"></div>
         <div class="right-ctr">
             <div class="row-between-container">
                 <h1>ACERCA DE MI</h1>
